@@ -1,16 +1,10 @@
-
+package assesment.assesment1;
 import java.io.Serializable;
-
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
 /**
  *
  * @author Asus
  */
-public class Position implements Serializable{
+public class Position implements Serializable {
     private double x;
     private double y;
     
@@ -39,5 +33,7 @@ public class Position implements Serializable{
         this.x = x;
         this.y = y;
     }
-    
+
+Position position = new Position(0, 0);
 }
+
