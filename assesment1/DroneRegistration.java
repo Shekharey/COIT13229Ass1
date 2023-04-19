@@ -13,14 +13,15 @@ import javax.swing.text.Position;
  */
 public class DroneRegistration implements Serializable{
     private String Name;
-    private Integer ID;
+    private String ID;
     private Position position;
+
 
     public void setName(String Name) {
         this.Name = Name;
     }
 
-    public void setID(Integer ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 
@@ -32,7 +33,7 @@ public class DroneRegistration implements Serializable{
         return Name;
     }
 
-    public Integer getID() {
+    public String getID() {
         return ID;
     }
 
@@ -40,7 +41,7 @@ public class DroneRegistration implements Serializable{
         return position;
     }
 
-    public DroneRegistration(String Name, Integer ID, Position position) {
+    public DroneRegistration(String Name, String ID, Position position) {
         this.Name = Name;
         this.ID = ID;
         this.position = position;

@@ -1,57 +1,44 @@
-package assesment.assesment1;
+package assessment.assessment1;
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.io.*;
-import java.util.ArrayList;
+import java.net.UnknownHostException;
 
-/**
- *
- * @author Asus
- */
-public class Client{
-	public static void main(String args[]) {
-		Socket s = null;
+public class Client {
+    public static void main(String[] args) {
+        String serverIp = "localhost";
+        int serverPort = 7896;
+        String droneID = args[0];
+        String droneName = args[1];
+        int initialX = Integer.parseInt(args[2]);
+        int initialY = Integer.parseInt(args[3]);
+        DronePosition initialPosition = new DronePosition(initialX, initialY);
+        DroneRegistration droneRegistration = new DroneRegistration(droneID, droneName, initialPosition);
+        
+        try {
+            // Connect to server
+            Socket socket = new Socket(serverIp, serverPort);
+            ObjectOutputStream out = new ObjectOutputStream(socket.getOutputStream());
+            out.writeObject(droneRegistration);
+            System.out.println("Registration sent");
 
-		String serverIp = "localhost";
-		int serverPort = 7896;
+            // Receive the DronePosition object from the server and print it
+            ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+            DronePosition receivedPosition = (DronePosition) in.readObject();
+            System.out.println("Received position data from server: " + receivedPosition);
 
-                // create a new DroneRegistration object
-DroneRegistration drone = new DroneRegistration("Drone 1", 12345, 0.0, 0.0);
-
-// create a new Position object
-Position position = new Position(0.0, 0.0);
-
-// create a new socket and connect to the server
-Socket socket = new Socket("localhost", 12345);
-		try {
-			System.out.println("Start to connect to the server: ");
-			s = new Socket(serverIp, serverPort);
-
-			ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
-
-			System.out.println("Start to send a drone registration to the server: ");
-			out.writeObject(drone);
-			System.out.println("Data sent.");
-
-			ObjectInputStream in = new ObjectInputStream(s.getInputStream());
-
-			DroneRegistration receivedDrone = (DroneRegistration) in.readObject();
-			System.out.println("Drone name received from the server: " + receivedDrone.getName());
-			System.out.println("Drone ID received from the server: " + receivedDrone.getID());
-			System.out.println("Drone position received from the server: " + receivedDrone.getPosition());
-			
-		} catch (ClassNotFoundException e) {
-			System.out.println("Error: " + e.getMessage());
-		} catch (EOFException e) {
-			System.out.println("EOF:" + e.getMessage());
-		} catch (IOException e) {
-			System.out.println("IO:" + e.getMessage());
-		} finally {
-			if (s != null)
-				try {
-					s.close();
-				} catch (IOException e) {
-					System.out.println("close:" + e.getMessage());
-				}
-		}
-	}
+            // Close the input/output streams and socket
+            in.close();
+            out.close();
+            socket.close();
+        } catch (UnknownHostException e) {
+            System.err.println("Cannot find host: " + serverIp);
+        } catch (IOException e) {
+            System.err.println("Couldn't get I/O for the connection to: " + serverIp);
+        } catch (ClassNotFoundException e) {
+            System.err.println("Object received from unknown class");
+        }
+    }
 }
