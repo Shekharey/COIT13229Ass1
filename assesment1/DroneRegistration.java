@@ -3,48 +3,55 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package assesment.assesment1;
-
 import java.io.Serializable;
-import javax.swing.text.Position;
-
 /**
  *
  * @author Asus
  */
-public class DroneRegistration implements Serializable{
-    private String Name;
-    private String ID;
-    private Position position;
+public class DroneRegistration implements Serializable {
+    private String id;
+    private String name;
+    private DronePosition initialPosition;
 
-
-    public void setName(String Name) {
-        this.Name = Name;
+    public DroneRegistration(String id, String name, DronePosition initialPosition) {
+        this.id = id;
+        this.name = name;
+        this.initialPosition = initialPosition;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    // Getters and setters
+    public String getID() {
+        return id;
     }
 
-    public void setPosition(Position position) {
-        this.position = position;
+    public void setID(String id) {
+        this.id = id;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
-    public String getID() {
-        return ID;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public Position getPosition() {
-        return position;
+    public DronePosition getInitialPosition() {
+        return initialPosition;
     }
 
-    public DroneRegistration(String Name, String ID, Position position) {
-        this.Name = Name;
-        this.ID = ID;
-        this.position = position;
+    public void setInitialPosition(DronePosition initialPosition) {
+        this.initialPosition = initialPosition;
     }
-}   
+
+    @Override
+    public String toString() {
+        return "DroneRegistration{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", initialPosition=" + initialPosition +
+                '}';
+    }
+}
+   
 

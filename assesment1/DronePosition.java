@@ -1,36 +1,41 @@
 package assesment.assesment1;
+
 import java.io.Serializable;
-/**
- *
- * @author Asus
- */
+
 public class DronePosition implements Serializable {
-    private double x;
-    private double y;
-    
-    //getters
-    public double getX() {
+    private int x;
+    private int y;
+
+    public DronePosition() {}
+
+    public DronePosition(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getX() {
         return x;
     }
 
-    public double getY() {
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
         return y;
     }
-    
-    //setters
 
-    public void setX(double x) {
-        this.x = x;
-    }
-
-    public void setY(double y) {
+    public void setY(int y) {
         this.y = y;
     }
-    
-    //constructors
 
-    public DronePosition(double x, double y) {
-        this.x = x;
-        this.y = y;
+    @Override
+    public String toString() {
+        return "DronePosition{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
     }
 }
+
+
