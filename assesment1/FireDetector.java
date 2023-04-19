@@ -15,7 +15,7 @@ public class FireDetector {
 
     private static double calculateDistanceToFire(DronePosition currentPosition) {
         // Calculate the distance between the drone's current position and the fire location
-        DronePosition firePosition = new DronePosition(50, 50); // This is just a sample location, replace with actual fire location
+        DronePosition firePosition = new DronePosition(50, 50); 
         int dx = currentPosition.getX() - firePosition.getX();
         int dy = currentPosition.getY() - firePosition.getY();
         return Math.sqrt(dx*dx + dy*dy);
