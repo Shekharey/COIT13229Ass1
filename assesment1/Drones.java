@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package assesment.assesment1;
-
-/**
- *
- * @author Asus
- */
+//Shekhar Sharma (12134685)
 public class Drones {
 
     /**
