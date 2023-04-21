@@ -8,7 +8,10 @@ import java.net.Socket;
 import java.util.ArrayList;
 
 public class Drones{
-    private static ArrayList<DroneRegistration> droneRegistrations = new ArrayList<>();
+    public static void main(String[] args){
+        
+    }
+/**    private static ArrayList<DroneRegistration> droneRegistrations = new ArrayList<>();
 
     public static void main(String[] args) {
         try {
@@ -60,7 +63,7 @@ public class Drones{
                     System.out.println("Drone position update: " + currentPosition);
 
                     // Check for any fires near the drone
-                    ArrayList<FireAlert> alerts = FireDetector.checkForFire(currentPosition);
+                   ArrayList<FireAlert> alerts = FireDetector.checkForFire(currentPosition);
 
                     // Send fire alerts back to the client
                     synchronized (out) {
@@ -82,5 +85,5 @@ public class Drones{
                 }
             }
         }
-    }
+    }**/
 }

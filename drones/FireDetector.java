@@ -1,5 +1,5 @@
 package assesment.drones;
-
+//Shekhar Sharma (12134685)
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
@@ -55,5 +55,5 @@ public class FireDetector {
                 System.err.println("Error closing socket: " + e.getMessage());
             }
         }
-    }
+    }    
 }
