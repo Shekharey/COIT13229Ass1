@@ -9,6 +9,7 @@ import java.util.TimerTask;
 
 public class Client{
     private static final int SEND_POSITION_INTERVAL = 10000; // 10 seconds
+
     public static void main(String[] args) {
         Socket s = null;
 
