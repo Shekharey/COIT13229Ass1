@@ -1,5 +1,5 @@
 package assesment.drones;
-//Shekhar Sharma (12134685)
+//Shekhar Sharma 12134685
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;

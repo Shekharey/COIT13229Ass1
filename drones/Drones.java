@@ -1,5 +1,5 @@
 package assesment.drones;
-//Shekhar Sharma (12134685)
+//Shekhar Sharma 12134685
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
